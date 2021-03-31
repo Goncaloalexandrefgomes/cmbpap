@@ -2,18 +2,30 @@
 {% block conteudo %}
 
 <section id="login">
-    <h2>Iniciar Sessão</h2>
-    <fieldset>
-        <legend>Introduza os seus dados</legend>
-        <form method="post">
-            <h4>Utilizador</h4>
-            <input type='text' name='utilizador' required>
-            <h4>Palavra-Passe</h4>
-            <input type='password' name='passe' required>
-            <p><br></p>
-            <input type='submit' value="Entrar">
-        </form>
-    </fieldset>
+    <div class="container-login">
+        <div class="wrap-login">
+            <form class="login-form validate-form" id="formLogin" action="" method="post">
+                <span class="login-form-title">LOGIN</span>
+
+                <div class="wrap-input100">
+                    <input class="input100" type="text" name="utilizador" placeholder="Utilizador" required>
+                    <span class="focus-efeito"></span>
+                </div>
+
+                <div class="wrap-input100">
+                    <input class="input100" type="password" name="passe" placeholder="Palavra-Passe" required>
+                    <span class="focus-efeito"></span>
+                </div>
+
+                <div class="container-login-form-btn">
+                    <div class="wrap-login-form-btn">
+                        <div class="login-form-bgbtn"></div>
+                        <button type="submit" name="submit" class="login-form-btn">Entrar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </section>
 {% if erro %}<h1>{{ erro }}</h1>{% endif %}
 {% endblock %}
