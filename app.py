@@ -65,6 +65,14 @@ def code(passe):
 def index():
     return render_template('index.html')
 
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
+
+@app.route('/equipa')
+def equipa():
+    return render_template('equipa.html')
+
 
 def redirect_dest(fallback):
     dest = request.args.get('next')
@@ -86,7 +94,7 @@ def login():
         elif not log(v1, v2):
             erro = 'A palavra passe está errada.'
         else:
-            return redirect_dest(fallback=url_for('index'))
+            return redirect_dest(fallback=url_for('dashboard'))
             erro = 'Bem-Vindo.'
     return render_template('login.html', erro=erro)
 

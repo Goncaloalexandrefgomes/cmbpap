@@ -1,21 +1,41 @@
 {% extends 'layout.html' %}
 {% block conteudo %}
+<section id="registo">
 
-<h2>Criar Conta</h2>
-<fieldset>
-    <legend>Introduza os seus dados</legend>
-    <form method="post">
-        <h4>Utilizador</h4>
-        <input type='text' name='utilizador' required>
-        <h4>Endereço de Email</h4>
-        <input type='text' name='email' required>
-        <h4>Palavra-Passe</h4>
-        <input type='password' name='passe' required>
-        <h4>Confirme a Passe</h4>
-        <input type='password' name='cpasse' required>
-        <p><br></p>
-        <input type='submit' value="Submeter">
-    </form>
-</fieldset>
+    <div class="container-registo">
+        <div class="wrap-registo">
+            <form class="registo-form validate-form" id="formRegisto" action="" method="post">
+                <span class="registo-form-title">Registo</span>
+
+                <div class="wrap-input100">
+                    <input class="input100" type="text" name="utilizador" placeholder="Utilizador" required>
+                    <span class="focus-efeito"></span>
+                </div>
+
+                <div class="wrap-input100">
+                    <input class="input100" type="text" name="email" placeholder="Endereço de Email" required>
+                    <span class="focus-efeito"></span>
+                </div>
+
+                <div class="wrap-input100">
+                    <input class="input100" type="password" name="passe" placeholder="Palavra-Passe" required>
+                    <span class="focus-efeito"></span>
+                </div>
+
+                <div class="wrap-input100">
+                    <input class="input100" type="password" name="cpasse" placeholder="Confirme a Palavra-Passe" required>
+                    <span class="focus-efeito"></span>
+                </div>
+
+                <div class="container-registo-form-btn">
+                    <div class="wrap-registo-form-btn">
+                        <div class="registo-form-bgbtn"></div>
+                        <button type="submit" name="submit" class="registo-form-btn">Submeter</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
 {% if erro %}<h1>{{ erro }}</h1>{% endif %}
 {% endblock %}
