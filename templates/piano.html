@@ -1,0 +1,80 @@
+{% extends 'layout.html' %}
+{% block conteudo %}
+<body>
+<div class="loader-container">
+    <div class="loader"></div>
+</div>
+<section id="home2">
+    <div class="inner-width">
+        <div class="content">
+            <h1>PIANO</h1>
+            <div class="sm">
+                <a href="https://www.facebook.com" class="fab fa-facebook-f"></a>
+                <a href="https://twitter.com/home" class="fab fa-twitter"></a>
+                <a href="https://instagram.com" class="fab fa-instagram"></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="sobre">
+    <div class="sobre-section">
+        <div class="inner-width">
+            <h1>Piano</h1>
+            <div class="border"></div>
+            <div class="sobre-section-row">
+                <div class="sobre-section-col">
+                    <div class="sobre">
+                        <p>
+                            O curso de Piano destina-se a alunos que desejam obter ou
+                            aperfeiçoar os seus conhecimentos na prática deste instrumento musical.<br><br>
+
+                            As diferentes abordagens ao ensino do piano neste curso, permitem ir ao encontro dos gostos
+                            e objectivos específicos de cada aluno.<br><br>
+
+                            Desde um estilo mais erudito até ao Rock, passando também pelo Pop, este curso proporciona
+                            uma aprendizagem estruturada, apoiada em materiais pedagógicos regularmente actualizados, em
+                            instrumentos e equipamentos musicais tecnologicamente avançados.
+                        </p>
+
+                        <div class="tbl-header2">
+                            <table cellpadding="0" cellspacing="0" border="0">
+                                <thead>
+                                <tr>
+                                    <th class="th2">ATIVIDADE</th>
+                                    <th class="th2">AULAS</th>
+                                    <th class="th2">PRECO</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <div class="tbl-content2">
+                            <table cellpadding="0" cellspacing="0" border="0">
+                                <tbody>
+                                <tr>
+                                    <td class="td2">Piano</td>
+                                    <td class="td2">2 / por semana</td>
+                                    <td class="td2">40€/ 60€ individual</td>
+                                </tr>
+                                <tr>
+                                    <td class="td2">Piano</td>
+                                    <td class="td2">3 / por semana</td>
+                                    <td class="td2">65€/ 85€ individual</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+        $(window).on("load",function(){
+            $(".loader-container").fadeOut(1000);
+        });
+</script>
+</body>
+{% endblock %}

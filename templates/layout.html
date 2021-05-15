@@ -3,57 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <title>Escola CMB</title>
+
+    <!-- Load an icon library -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    <script src="static/scripts.js"></script>
     <link rel="stylesheet" href="static/style.css">
+    <script src="https://kit.fontawesome.com/a8894cee15.js" crossorigin="anonymous"></script>
+
 
 </head>
 
-  <!-- Header -->
-  <section id="header">
-    <div class="header container">
-      <div class="nav-bar">
-        <div class="brand">
-          <a href="/"><h1><span>E</span>scola <span>C</span>MB</h1></a>
+<!--Navbar-->
+<nav class="navbar">
+    <div class="inner-width">
+        <a href="/" class="logo"></a>
+        <button class="menu-toggler">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="navbar-menu">
+            <a href="/">Inicio</a>
+            <a href="#about">Missao</a>
+            <a href="#services">Cursos</a>
+            <a href="#faq">FAQ</a>
+            <a href="#price">Eventos</a>
+            <a href="#contact">Contacto</a>
+            <a href="/pages-login-2">Login</a>
         </div>
-        <div class="nav-list">
-          <div class="hamburger"><div class="bar"></div></div>
-          <ul>
-            <li><a href="/">Inicio</a></li>
-            <li><a href="#services">Cursos</a></li>
-            <li><a href="#projects">Eventos</a></li>
-            <li><a href="#about">Sobre</a></li>
-            <li><a href="#contact">Contacto</a></li>
-            <li><a href="/pages-login-2">Login</a></li>
-          </ul>
-        </div>
-      </div>
     </div>
-  </section>
-  <!-- End Header -->
+</nav>
 
 </body>
 
 {% block conteudo %}
 {% endblock %}
-  <!-- Footer -->
-  <section id="footer">
-    <div class="footer container">
-      <div class="brand"><h1><span>E</span>SCOLA <span>C</span>MB</h1></div>
-      <h2>A sua solucao estao a sua frente!</h2>
-      <div class="social-icon">
-        <div class="social-item">
-          <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/facebook-new.png"/></a>
+<footer>
+    <div class="inner-width">
+        <div class="copyright">
+            &copy; 2021 | Created & Designed By <a href="#">Goncalo Gomes</a>
         </div>
-        <div class="social-item">
-          <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/instagram-new.png"/></a>
+        <div class="sm">
+            <a href="https://www.facebook.com" class="fab fa-facebook-f"></a>
+            <a href="https://twitter.com/home" class="fab fa-twitter"></a>
+            <a href="https://instagram.com" class="fab fa-instagram"></a>
         </div>
-        <div class="social-item">
-          <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/twitter.png"/></a>
-        </div>
-      </div>
-      <p>Copyright © 2020 CMB. All rights reserved</p>
     </div>
-  </section>
-  <!-- End Footer -->
+</footer>
+
+<!-- Go Top BTN -->
+<button class="goTop fas fa-arrow-up"></button>
 
 </body>
 </html>
