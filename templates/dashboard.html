@@ -1,223 +1,246 @@
-{% extends 'layoutdash.html' %}
-{% block conteudo %}
-<main>
-    <div class="cards">
-        <div class="card-single">
-            <div>
-                <h1>54</h1>
-                <span>Equipa</span>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon.png">
+    <title>Escola CMB</title>
+    <link href="/static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/plugins/chartist-js/dist/chartist.min.css" rel="stylesheet">
+    <link href="/static/plugins/chartist-js/dist/chartist-init.css" rel="stylesheet">
+    <link href="/static/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+    <link href="/static/plugins/css-chart/css-chart.css" rel="stylesheet">
+    <link href="/static/plugins/c3-master/c3.min.css" rel="stylesheet">
+    <link href="/static/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet"/>
+    <link href="/static/style2.css" rel="stylesheet">
+    <link href="/static/colors/default-dark.css" id="theme" rel="stylesheet">
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+</head>
+
+<body class="fix-header fix-sidebar card-no-border">
+<div class="preloader">
+    <svg class="circular" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+    </svg>
+</div>
+
+<div id="main-wrapper">
+    <header class="topbar">
+        <nav class="navbar top-navbar navbar-expand-md navbar-light">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="dashboard">
+                    <b>
+                        <img src="/static/images/logo-icon.png" alt="homepage" class="dark-logo"/>
+                        <img src="/static/images/logo-light-icon.png" alt="homepage" class="light-logo"/>
+                    </b>
+                </a>
             </div>
-            <div>
-                <span class="las la-users"></span>
+
+            <div class="navbar-collapse">
+                <ul class="navbar-nav mr-auto mt-md-0">
+                    <li class="nav-item"><a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark"
+                                            href="javascript:void(0)"><i class="mdi mdi-menu"></i></a></li>
+                    <li class="nav-item"><a
+                            class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark"
+                            href="javascript:void(0)"><i class="ti-menu"></i></a></li>
+
+                    <li class="nav-item hidden-sm-down search-box">
+                        <a class="nav-link hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i
+                                class="ti-search"></i></a>
+                        <form class="app-search">
+                            <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i
+                                class="ti-close"></i></a></form>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <aside class="left-sidebar">
+        <div class="scroll-sidebar">
+            <div class="user-profile" style="background: url(/static/images/background/user-info.jpg) no-repeat;">
+                <div class="profile-img"><img src="/static/images/users/profile.png" alt="user"/></div>
+                <div class="profile-text"><a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown"
+                                             role="button" aria-haspopup="true" aria-expanded="true">Diretor</a>
+                    <div class="dropdown-menu animated flipInY"><a href="/profile" class="dropdown-item"><i
+                            class="ti-user"></i> My Profile</a>
+                        <a href="/profile" class="dropdown-item"><i class="ti-settings"></i> Account Setting</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="/" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a></div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul id="sidebarnav">
+                    <li><a class="waves-effect waves-dark" href="dashboard" aria-expanded="false"><i
+                            class="mdi mdi-gauge"></i>Dashboard</a>
+                    </li>
+                    <li><a class="waves-effect waves-dark" href="app-calendar" aria-expanded="false"><i
+                            class="mdi mdi-calendar-blank"></i><span class="hide-menu">Calendario</span></a>
+                    </li>
+                    <li><a class="waves-effect waves-dark" href="app-contact" aria-expanded="false"><i
+                            class="mdi mdi-contacts"></i><span class="hide-menu">Contacto Funcionarios</span></a>
+                    </li>
+                    <li><a class="waves-effect waves-dark" href="app-contactalunos" aria-expanded="false"><i
+                            class="mdi mdi-contacts"></i><span class="hide-menu">Contacto Alunos</span></a>
+                    </li>
+                    <li class="nav-devider"></li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+
+    <div class="page-wrapper">
+        <div class="container-fluid">
+            <div class="row page-titles">
+                <div class="col-md-5 col-8 align-self-center">
+                    <h3 class="text-themecolor">Dashboard</h3>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex flex-row">
+                                <div class="round round-lg align-self-center round-info"><i
+                                        class="mdi mdi-account-circle"></i></div>
+                                <div class="m-l-10 align-self-center">
+                                    <h3 class="m-b-0 font-light">29</h3>
+                                    <h5 class="text-muted m-b-0">Alunos</h5></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex flex-row">
+                                <div class="round round-lg align-self-center round-warning"><i
+                                        class="mdi mdi-account-multiple-plus"></i></div>
+                                <div class="m-l-10 align-self-center">
+                                    <h3 class="m-b-0 font-lgiht">76</h3>
+                                    <h5 class="text-muted m-b-0">Professores</h5></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex flex-row">
+                                <div class="round round-lg align-self-center round-primary"><i
+                                        class="mdi mdi-file-check"></i></div>
+                                <div class="m-l-10 align-self-center">
+                                    <h3 class="m-b-0 font-lgiht">19</h3>
+                                    <h5 class="text-muted m-b-0">Eventos</h5></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex flex-row">
+                                <div class="round round-lg align-self-center round-danger"><i
+                                        class="mdi mdi-contacts"></i></div>
+                                <div class="m-l-10 align-self-center">
+                                    <h3 class="m-b-0 font-lgiht">17</h3>
+                                    <h5 class="text-muted m-b-0">Contactos</h5></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Total Visits</h4>
+                            <div id="visitfromworld" style="width:100%!important; height:415px"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Browser Stats</h4>
+                            <table class="table browser m-t-30 no-border">
+                                <tbody>
+                                <tr>
+                                    <td style="width:40px"><img src="/static/images/browser/chrome-logo.png"
+                                                                alt=logo/></td>
+                                    <td>Google Chrome</td>
+                                    <td class="text-right"><span class="label label-light-info">23%</span></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="/static/images/browser/firefox-logo.png" alt=logo/></td>
+                                    <td>Mozila Firefox</td>
+                                    <td class="text-right"><span class="label label-light-success">15%</span></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="/static/images/browser/safari-logo.png" alt=logo/></td>
+                                    <td>Apple Safari</td>
+                                    <td class="text-right"><span class="label label-light-primary">07%</span></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="/static/images/browser/internet-logo.png" alt=logo/></td>
+                                    <td>Internet Explorer</td>
+                                    <td class="text-right"><span class="label label-light-warning">09%</span></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="/static/images/browser/opera-logo.png" alt=logo/></td>
+                                    <td>Opera mini</td>
+                                    <td class="text-right"><span class="label label-light-danger">23%</span></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="/static/images/browser/internet-logo.png" alt=logo/></td>
+                                    <td>Microsoft edge</td>
+                                    <td class="text-right"><span class="label label-light-megna">09%</span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="card-single">
-            <div>
-                <h1>79</h1>
-                <span>Alunos</span>
-            </div>
-            <div>
-                <span class="las la-clipboard-list"></span>
-            </div>
-        </div>
-
-        <div class="card-single">
-            <div>
-                <h1>124</h1>
-                <span>Contactos</span>
-            </div>
-            <div>
-                <span class="las la-shopping-bag"></span>
-            </div>
-        </div>
-
-        <div class="card-single">
-            <div>
-                <h1>$24K</h1>
-                <span>Eventos</span>
-            </div>
-            <div>
-                <span class="lab la-google-wallet"></span>
-            </div>
-        </div>
+        <footer class="footer">
+            © 2021 Escola CMB
+        </footer>
     </div>
+</div>
 
-    <div class="recent-grid">
-        <div class="projects">
-            <div class="card">
-                <div class="card-header">
-                    <h3>EVENTOS</h3>
-
-                    <button>Ver Todos <span class="las la-arrow-right"></span></button>
-                </div>
-
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table width="100%">
-                            <thead>
-                            <tr>
-                                <td>Evento</td>
-                                <td>Instrumento</td>
-                                <td>Status</td>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>UI/UX Design</td>
-                                <td>UI Team</td>
-                                <td>
-                                    <span class="status purple"></span>
-                                    review
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Web development</td>
-                                <td>Frontend</td>
-                                <td>
-                                    <span class="status pink"></span>
-                                    in progress
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Ushop app</td>
-                                <td>Mobile Team</td>
-                                <td>
-                                    <span class="status orange"></span>
-                                    pending
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>UI/UX Design</td>
-                                <td>UI Team</td>
-                                <td>
-                                    <span class="status purple"></span>
-                                    review
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Web development</td>
-                                <td>Frontend</td>
-                                <td>
-                                    <span class="status pink"></span>
-                                    in progress
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Ushop app</td>
-                                <td>Mobile Team</td>
-                                <td>
-                                    <span class="status orange"></span>
-                                    pending
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>UI/UX Design</td>
-                                <td>UI Team</td>
-                                <td>
-                                    <span class="status purple"></span>
-                                    review
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Web development</td>
-                                <td>Frontend</td>
-                                <td>
-                                    <span class="status pink"></span>
-                                    in progress
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Ushop app</td>
-                                <td>Mobile Team</td>
-                                <td>
-                                    <span class="status orange"></span>
-                                    pending
-                                </td>
-                            </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="customers">
-            <div class="card">
-                <div class="card-header">
-                    <h3>Equipa</h3>
-
-                    <a href="/equipa">
-                        <button>Ver Todos <span class="las la-arrow-right"></span></button>
-                    </a>
-                </div>
-
-                <div class="card-body">
-                    <div class="customer">
-                        <div class="info">
-                            <img src="/static/img/img-2.png" width="40px" height="40px" alt="">
-                            <div>
-                                <h4>Lewis S. Cunningham</h4>
-                                <small>CEO Excerpt</small>
-                            </div>
-                        </div>
-                        <div class="contact">
-                            <span class="las la-user-circle"></span>
-                            <span class="las la-comment"></span>
-                            <span class="las la-phone"></span>
-                        </div>
-                    </div>
-
-                    <div class="customer">
-                        <div class="info">
-                            <img src="/static/img/img-2.png" width="40px" height="40px" alt="">
-                            <div>
-                                <h4>Lewis S. Cunningham</h4>
-                                <small>CEO Excerpt</small>
-                            </div>
-                        </div>
-                        <div class="contact">
-                            <span class="las la-user-circle"></span>
-                            <span class="las la-comment"></span>
-                            <span class="las la-phone"></span>
-                        </div>
-                    </div>
-
-                    <div class="customer">
-                        <div class="info">
-                            <img src="/static/img/img-2.png" width="40px" height="40px" alt="">
-                            <div>
-                                <h4>Lewis S. Cunningham</h4>
-                                <small>CEO Excerpt</small>
-                            </div>
-                        </div>
-                        <div class="contact">
-                            <span class="las la-user-circle"></span>
-                            <span class="las la-comment"></span>
-                            <span class="las la-phone"></span>
-                        </div>
-                    </div>
-
-                    <div class="customer">
-                        <div class="info">
-                            <img src="/static/img/img-2.png" width="40px" height="40px" alt="">
-                            <div>
-                                <h4>Lewis S. Cunningham</h4>
-                                <small>CEO Excerpt</small>
-                            </div>
-                        </div>
-                        <div class="contact">
-                            <span class="las la-user-circle"></span>
-                            <span class="las la-comment"></span>
-                            <span class="las la-phone"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</main>
-{% endblock %}
+<script data-cfasync="false" src="../../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="/static/plugins/jquery/jquery.min.js"></script>
+<script src="/static/plugins/popper/popper.min.js"></script>
+<script src="/static/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/js/jquery.slimscroll.js"></script>
+<script src="/static/js/waves.js"></script>
+<script src="/static/js/sidebarmenu.js"></script>
+<script src="/static/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+<script src="/static/plugins/sparkline/jquery.sparkline.min.js"></script>
+<script src="/static/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+<script src="/static/plugins/sparkline/jquery.sparkline.min.js"></script>
+<script src="/static/plugins/sparkline/jquery.sparkline.min.js"></script>
+<script src="/static/js/custom.min.js"></script>
+<script src="/static/plugins/chartist-js/dist/chartist.min.js"></script>
+<script src="/static/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+<script src="/static/plugins/d3/d3.min.js"></script>
+<script src="/static/plugins/c3-master/c3.min.js"></script>
+<script src="/static/plugins/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
+<script src="/static/plugins/vectormap/jquery-jvectormap-us-aea-en.js"></script>
+<script src="/static/js/dashboard2.js"></script>
+<script src="/static/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+</body>
+</html>

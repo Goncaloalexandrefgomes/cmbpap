@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon.png">
+    <title>Escola CMB</title>
+    <link href="/static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/plugins/footable/css/footable.bootstrap.min.css" rel="stylesheet">
+    <link href="/static/style2.css" rel="stylesheet">
+    <link href="/static/colors/default-dark.css" id="theme" rel="stylesheet">
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+</head>
+
+<body class="fix-header fix-sidebar card-no-border">
+<div class="preloader">
+    <svg class="circular" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+    </svg>
+</div>
+
+<div id="main-wrapper">
+    <header class="topbar">
+        <nav class="navbar top-navbar navbar-expand-md navbar-light">
+
+            <div class="navbar-header">
+                <a class="navbar-brand" href="dashboard">
+                    <b>
+                        <img src="/static/images/logo-icon.png" alt="homepage" class="dark-logo"/>
+                    </b>
+                    <span>
+                </a>
+            </div>
+
+            <div class="navbar-collapse">
+                <ul class="navbar-nav mr-auto mt-md-0">
+                    <li class="nav-item"><a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark"
+                                            href="javascript:void(0)"><i class="mdi mdi-menu"></i></a></li>
+                    <li class="nav-item"><a
+                            class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark"
+                            href="javascript:void(0)"><i class="ti-menu"></i></a></li>
+                    <li class="nav-item hidden-sm-down search-box">
+                        <a class="nav-link hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i
+                                class="ti-search"></i></a>
+                        <form class="app-search">
+                            <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i
+                                class="ti-close"></i></a></form>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <aside class="left-sidebar">
+        <div class="scroll-sidebar">
+            <div class="user-profile" style="background: url(/static/images/background/user-info.jpg) no-repeat;">
+                <div class="profile-img"><img src="/static/images/users/profile.png" alt="user"/></div>
+                <div class="profile-text"><a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown"
+                                             role="button" aria-haspopup="true" aria-expanded="true">Diretor</a>
+                    <div class="dropdown-menu animated flipInY"><a href="/profile" class="dropdown-item"><i
+                            class="ti-user"></i> My Profile</a>
+                        <a href="/profile" class="dropdown-item"><i class="ti-settings"></i> Account Setting</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="/" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a></div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul id="sidebarnav">
+                    <li><a class="waves-effect waves-dark" href="dashboard" aria-expanded="false"><i
+                            class="mdi mdi-gauge"></i>Dashboard</a>
+                    </li>
+                    <li><a class="waves-effect waves-dark" href="app-calendar" aria-expanded="false"><i
+                            class="mdi mdi-calendar-blank"></i><span class="hide-menu">Calendario</span></a>
+                    </li>
+                    <li><a class="waves-effect waves-dark" href="app-contact.html" aria-expanded="false"><i
+                            class="mdi mdi-contacts"></i><span class="hide-menu">Contacto Funcionario</span></a>
+                    </li>
+                    <li><a class="waves-effect waves-dark" href="app-contactalunos" aria-expanded="false"><i
+                            class="mdi mdi-contacts"></i><span class="hide-menu">Contacto Alunos</span></a>
+                    </li>
+                    <li class="nav-devider"></li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+
+    <div class="page-wrapper">
+        <div class="container-fluid">
+            <div class="row page-titles">
+                <div class="col-md-5 col-8 align-self-center">
+                    <h3 class="text-themecolor m-b-0 m-t-0">Contato Alunos</h3>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item active">Contato Alunos</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="contact-page-aside">
+                            <!-- .left-aside-column-->
+                            <div class="left-aside">
+                                <ul class="list-style-none">
+                                    <li class="box-label"><a href="javascript:void(0)">Todos os Contactos
+                                        <span>123</span></a></li>
+                                    <li class="divider"></li>
+                                    <div id="myModal" class="modal fade in" tabindex="-1" role="dialog"
+                                         aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title" id="myModalLabel">Add Lable</h4>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                            aria-hidden="true">×
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <from class="form-horizontal">
+                                                        <div class="form-group">
+                                                            <label class="col-md-12">Name of Label</label>
+                                                            <div class="col-md-12">
+                                                                <input type="text" class="form-control"
+                                                                       placeholder="type name"></div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-12">Select Number of people</label>
+                                                            <div class="col-md-12">
+                                                                <select class="form-control">
+                                                                    <option>Todos os Contactos</option>
+                                                                    <option>10</option>
+                                                                    <option>20</option>
+                                                                    <option>30</option>
+                                                                    <option>40</option>
+                                                                    <option>Custome</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </from>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-info waves-effect"
+                                                            data-dismiss="modal">Save
+                                                    </button>
+                                                    <button type="button" class="btn btn-default waves-effect"
+                                                            data-dismiss="modal">Cancel
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ul>
+                            </div>
+                            <div class="right-aside">
+                                <div class="right-page-header">
+                                    <div class="d-flex">
+                                        <div class="align-self-center">
+                                            <h4 class="card-title m-t-10">Contatos / Lista de Alunos </h4></div>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table id="demo-foo-addrow"
+                                               class="table m-t-30 table-hover no-wrap contact-list" data-paging="true"
+                                               data-paging-size="7">
+                                            <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Nome</th>
+                                                <th>Email</th>
+                                                <th>Telemovel</th>
+                                                <th>Instrumento</th>
+                                                <th>Idade</th>
+                                                <th>Data de Inscricao</th>
+                                                <th>Salario</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>
+                                                    <a href="app-contact-detail"><img
+                                                            src="/static/images/users/1.jpg" alt="user"
+                                                            class="img-circle"/> Genelia Deshmukh</a>
+                                                </td>
+                                                <td><a href="https://www.wrappixel.com/cdn-cgi/l/email-protection"
+                                                       class="__cf_email__"
+                                                       data-cfemail="c0a7a5aea5aca9a180a7ada1a9aceea3afad">[email&#160;protected]</a>
+                                                </td>
+                                                <td>+123 456 789</td>
+                                                <td><span class="label label-danger">Designer</span></td>
+                                                <td>23</td>
+                                                <td>12-10-2014</td>
+                                                <td>$1200</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>
+                                                    <a href="app-contact-detail"><img
+                                                            src="/static/images/users/2.jpg" alt="user"
+                                                            class="img-circle"/> Arijit Singh</a>
+                                                </td>
+                                                <td><a href="https://www.wrappixel.com/cdn-cgi/l/email-protection"
+                                                       class="__cf_email__"
+                                                       data-cfemail="204152494a495460474d41494c0e434f4d">[email&#160;protected]</a>
+                                                </td>
+                                                <td>+234 456 789</td>
+                                                <td><span class="label label-info">Developer</span></td>
+                                                <td>26</td>
+                                                <td>10-09-2014</td>
+                                                <td>$1800</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>
+                                                    <a href="app-contact-detail"><img
+                                                            src="/static/images/users/3.jpg" alt="user"
+                                                            class="img-circle"/> Govinda jalan</a>
+                                                </td>
+                                                <td><a href="https://www.wrappixel.com/cdn-cgi/l/email-protection"
+                                                       class="__cf_email__"
+                                                       data-cfemail="1c7b736a7572787d5c7b717d7570327f7371">[email&#160;protected]</a>
+                                                </td>
+                                                <td>+345 456 789</td>
+                                                <td><span class="label label-success">Accountant</span></td>
+                                                <td>28</td>
+                                                <td>1-10-2013</td>
+                                                <td>$2200</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>
+                                                    <a href="app-contact-detail"><img
+                                                            src="/static/images/users/4.jpg" alt="user"
+                                                            class="img-circle"/> Hritik Roshan</a>
+                                                </td>
+                                                <td><a href="https://www.wrappixel.com/cdn-cgi/l/email-protection"
+                                                       class="__cf_email__"
+                                                       data-cfemail="f49c869d809d9fb49399959d98da979b99">[email&#160;protected]</a>
+                                                </td>
+                                                <td>+456 456 789</td>
+                                                <td><span class="label label-inverse">HR</span></td>
+                                                <td>25</td>
+                                                <td>2-10-2017</td>
+                                                <td>$200</td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>
+                                                    <a href="app-contact-detail"><img
+                                                            src="/static/images/users/5.jpg" alt="user"
+                                                            class="img-circle"/> John Abraham</a>
+                                                </td>
+                                                <td><a href="https://www.wrappixel.com/cdn-cgi/l/email-protection"
+                                                       class="__cf_email__"
+                                                       data-cfemail="a4cecbcccae4c3c9c5cdc88ac7cbc9">[email&#160;protected]</a>
+                                                </td>
+                                                <td>+567 456 789</td>
+                                                <td><span class="label label-danger">Manager</span></td>
+                                                <td>23</td>
+                                                <td>10-9-2015</td>
+                                                <td>$1200</td>
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td>
+                                                    <a href="app-contact-detail"><img
+                                                            src="/static/images/users/6.jpg" alt="user"
+                                                            class="img-circle"/> Pawandeep kumar</a>
+                                                </td>
+                                                <td><a href="https://www.wrappixel.com/cdn-cgi/l/email-protection"
+                                                       class="__cf_email__"
+                                                       data-cfemail="d7a7b6a0b6b9b3b2b2a797b0bab6bebbf9b4b8ba">[email&#160;protected]</a>
+                                                </td>
+                                                <td>+678 456 789</td>
+                                                <td><span class="label label-warning">Chairman</span></td>
+                                                <td>29</td>
+                                                <td>10-5-2013</td>
+                                                <td>$1500</td>
+                                            </tr>
+                                            <tr>
+                                                <td>7</td>
+                                                <td>
+                                                    <a href="app-contact-detail"><img
+                                                            src="/static/images/users/7.jpg" alt="user"
+                                                            class="img-circle"/> Ritesh Deshmukh</a>
+                                                </td>
+                                                <td><a href="https://www.wrappixel.com/cdn-cgi/l/email-protection"
+                                                       class="__cf_email__"
+                                                       data-cfemail="53213a2736203b13343e323a3f7d303c3e">[email&#160;protected]</a>
+                                                </td>
+                                                <td>+123 456 789</td>
+                                                <td><span class="label label-danger">Designer</span></td>
+                                                <td>35</td>
+                                                <td>05-10-2012</td>
+                                                <td>$3200</td>
+                                            </tr>
+                                            <tr>
+                                                <td>8</td>
+                                                <td>
+                                                    <a href="app-contact-detail"><img
+                                                            src="/static/images/users/8.jpg" alt="user"
+                                                            class="img-circle"/> Salman Khan</a>
+                                                </td>
+                                                <td><a href="https://www.wrappixel.com/cdn-cgi/l/email-protection"
+                                                       class="__cf_email__"
+                                                       data-cfemail="5625373a3b373816313b373f3a7835393b">[email&#160;protected]</a>
+                                                </td>
+                                                <td>+234 456 789</td>
+                                                <td><span class="label label-info">Developer</span></td>
+                                                <td>27</td>
+                                                <td>11-10-2014</td>
+                                                <td>$1800</td>
+                                            </tr>
+                                            <tr>
+                                                <td>9</td>
+                                                <td>
+                                                    <a href="app-contact-detail"><img
+                                                            src="/static/images/users/1.jpg" alt="user"
+                                                            class="img-circle"/> Govinda jalan</a>
+                                                </td>
+                                                <td><a href="https://www.wrappixel.com/cdn-cgi/l/email-protection"
+                                                       class="__cf_email__"
+                                                       data-cfemail="70171f06191e141130171d11191c5e131f1d">[email&#160;protected]</a>
+                                                </td>
+                                                <td>+345 456 789</td>
+                                                <td><span class="label label-success">Accountant</span></td>
+                                                <td>18</td>
+                                                <td>12-5-2017</td>
+                                                <td>$100</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10</td>
+                                                <td>
+                                                    <a href="app-contact-detail"><img
+                                                            src="/static/images/users/2.jpg" alt="user"
+                                                            class="img-circle"/> Sonu Nigam</a>
+                                                </td>
+                                                <td><a href="https://www.wrappixel.com/cdn-cgi/l/email-protection"
+                                                       class="__cf_email__"
+                                                       data-cfemail="fe8d91908bbe99939f9792d09d9193">[email&#160;protected]</a>
+                                                </td>
+                                                <td>+456 456 789</td>
+                                                <td><span class="label label-inverse">HR</span></td>
+                                                <td>36</td>
+                                                <td>18-5-2009</td>
+                                                <td>$4200</td>
+                                            </tr>
+                                            <tr>
+                                                <td>11</td>
+                                                <td>
+                                                    <a href="app-contact-detail"><img
+                                                            src="/static/images/users/3.jpg" alt="user"
+                                                            class="img-circle"/> Varun Dhawan</a>
+                                                </td>
+                                                <td><a href="https://www.wrappixel.com/cdn-cgi/l/email-protection"
+                                                       class="__cf_email__"
+                                                       data-cfemail="493f283b3c27092e24282025672a2624">[email&#160;protected]</a>
+                                                </td>
+                                                <td>+567 456 789</td>
+                                                <td><span class="label label-danger">Manager</span></td>
+                                                <td>43</td>
+                                                <td>12-10-2010</td>
+                                                <td>$5200</td>
+                                            </tr>
+                                            <tr>
+                                                <td>12</td>
+                                                <td>
+                                                    <a href="app-contact-detail"><img
+                                                            src="/static/images/users/4.jpg" alt="user"
+                                                            class="img-circle"/> Genelia Deshmukh</a>
+                                                </td>
+                                                <td><a href="https://www.wrappixel.com/cdn-cgi/l/email-protection"
+                                                       class="__cf_email__"
+                                                       data-cfemail="88efede6ede4e1e9c8efe5e9e1e4a6ebe7e5">[email&#160;protected]</a>
+                                                </td>
+                                                <td>+123 456 789</td>
+                                                <td><span class="label label-danger">Designer</span></td>
+                                                <td>23</td>
+                                                <td>12-10-2014</td>
+                                                <td>$1200</td>
+                                            </tr>
+                                            <tr>
+                                                <td>13</td>
+                                                <td>
+                                                    <a href="app-contact-detail"><img
+                                                            src="/static/images/users/5.jpg" alt="user"
+                                                            class="img-circle"/> Arijit Singh</a>
+                                                </td>
+                                                <td><a href="https://www.wrappixel.com/cdn-cgi/l/email-protection"
+                                                       class="__cf_email__"
+                                                       data-cfemail="b4d5c6dddeddc0f4d3d9d5ddd89ad7dbd9">[email&#160;protected]</a>
+                                                </td>
+                                                <td>+234 456 789</td>
+                                                <td><span class="label label-info">Developer</span></td>
+                                                <td>26</td>
+                                                <td>10-09-2014</td>
+                                                <td>$1800</td>
+                                            </tr>
+                                            <tr>
+                                                <td>14</td>
+                                                <td>
+                                                    <a href="app-contact-detail"><img
+                                                            src="/static/images/users/6.jpg" alt="user"
+                                                            class="img-circle"/> Govinda jalan</a>
+                                                </td>
+                                                <td><a href="https://www.wrappixel.com/cdn-cgi/l/email-protection"
+                                                       class="__cf_email__"
+                                                       data-cfemail="7c1b130a1512181d3c1b111d1510521f1311">[email&#160;protected]</a>
+                                                </td>
+                                                <td>+345 456 789</td>
+                                                <td><span class="label label-success">Accountant</span></td>
+                                                <td>28</td>
+                                                <td>1-10-2013</td>
+                                                <td>$2200</td>
+                                            </tr>
+                                            </tbody>
+                                            <tfoot>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <button type="button" class="btn btn-info btn-rounded"
+                                                            data-toggle="modal" data-target="#add-contact">Adicionar
+                                                        Novo Contato
+                                                    </button>
+                                                </td>
+                                                <div id="add-contact" class="modal fade in" tabindex="-1" role="dialog"
+                                                     aria-labelledby="myModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title" id="myModalLabel">Adicionar Novo
+                                                                    Contato</h4>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                        aria-hidden="true">×
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <from class="form-horizontal form-material">
+                                                                    <div class="form-group">
+                                                                        <div class="col-md-12 m-b-20">
+                                                                            <input type="text" class="form-control"
+                                                                                   placeholder="Nome"></div>
+                                                                        <div class="col-md-12 m-b-20">
+                                                                            <input type="text" class="form-control"
+                                                                                   placeholder="Email"></div>
+                                                                        <div class="col-md-12 m-b-20">
+                                                                            <input type="text" class="form-control"
+                                                                                   placeholder="Telemovel"></div>
+                                                                        <div class="col-md-12 m-b-20">
+                                                                            <input type="text" class="form-control"
+                                                                                   placeholder="Designacao"></div>
+                                                                        <div class="col-md-12 m-b-20">
+                                                                            <input type="text" class="form-control"
+                                                                                   placeholder="Idade"></div>
+                                                                        <div class="col-md-12 m-b-20">
+                                                                            <input type="text" class="form-control"
+                                                                                   placeholder="Data de Contrato"></div>
+                                                                        <div class="col-md-12 m-b-20">
+                                                                            <input type="text" class="form-control"
+                                                                                   placeholder="Salario"></div>
+                                                                        <div class="col-md-12 m-b-20">
+                                                                            <div class="fileupload btn btn-danger btn-rounded waves-effect waves-light">
+                                                                                <span><i class="ion-upload m-r-5"></i>Adicionar Imagem</span>
+                                                                                <input type="file" class="upload"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </from>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-info waves-effect"
+                                                                        data-dismiss="modal">Guardar
+                                                                </button>
+                                                                <button type="button"
+                                                                        class="btn btn-default waves-effect"
+                                                                        data-dismiss="modal">Cancelar
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <td colspan="7">
+                                                    <div class="text-right">
+                                                        <ul class="pagination"></ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-sidebar">
+                    <div class="slimscrollright">
+                        <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span>
+                        </div>
+                        <div class="r-panel-body">
+                            <ul id="themecolors" class="m-t-20">
+                                <li><b>With Light sidebar</b></li>
+                                <li><a href="javascript:void(0)" data-theme="default" class="default-theme">1</a></li>
+                                <li><a href="javascript:void(0)" data-theme="green" class="green-theme">2</a></li>
+                                <li><a href="javascript:void(0)" data-theme="red" class="red-theme">3</a></li>
+                                <li><a href="javascript:void(0)" data-theme="blue" class="blue-theme working">4</a></li>
+                                <li><a href="javascript:void(0)" data-theme="purple" class="purple-theme">5</a></li>
+                                <li><a href="javascript:void(0)" data-theme="megna" class="megna-theme">6</a></li>
+                                <li class="d-block m-t-30"><b>With Dark sidebar</b></li>
+                                <li><a href="javascript:void(0)" data-theme="default-dark"
+                                       class="default-dark-theme">7</a></li>
+                                <li><a href="javascript:void(0)" data-theme="green-dark" class="green-dark-theme">8</a>
+                                </li>
+                                <li><a href="javascript:void(0)" data-theme="red-dark" class="red-dark-theme">9</a></li>
+                                <li><a href="javascript:void(0)" data-theme="blue-dark" class="blue-dark-theme">10</a>
+                                </li>
+                                <li><a href="javascript:void(0)" data-theme="purple-dark"
+                                       class="purple-dark-theme">11</a></li>
+                                <li><a href="javascript:void(0)" data-theme="megna-dark"
+                                       class="megna-dark-theme ">12</a></li>
+                            </ul>
+                            <ul class="m-t-20 chatonline">
+                                <li><b>Chat option</b></li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="/static/images/users/1.jpg" alt="user-img"
+                                                                      class="img-circle"> <span>Varun Dhavan <small
+                                            class="text-success">online</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="/static/images/users/2.jpg" alt="user-img"
+                                                                      class="img-circle"> <span>Genelia Deshmukh <small
+                                            class="text-warning">Away</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="/static/images/users/3.jpg" alt="user-img"
+                                                                      class="img-circle"> <span>Ritesh Deshmukh <small
+                                            class="text-danger">Busy</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="/static/images/users/4.jpg" alt="user-img"
+                                                                      class="img-circle"> <span>Arijit Sinh <small
+                                            class="text-muted">Offline</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="/static/images/users/5.jpg" alt="user-img"
+                                                                      class="img-circle"> <span>Govinda Star <small
+                                            class="text-success">online</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="/static/images/users/6.jpg" alt="user-img"
+                                                                      class="img-circle"> <span>John Abraham<small
+                                            class="text-success">online</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="/static/images/users/7.jpg" alt="user-img"
+                                                                      class="img-circle"> <span>Hritik Roshan<small
+                                            class="text-success">online</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="/static/images/users/8.jpg" alt="user-img"
+                                                                      class="img-circle"> <span>Pwandeep rajan <small
+                                            class="text-success">online</small></span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="footer">
+                © 2021 Escola CMB
+            </footer>
+        </div>
+    </div>
+    <script data-cfasync="false"
+            src="../../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="/static/plugins/jquery/jquery.min.js"></script>
+    <script src="/static/plugins/popper/popper.min.js"></script>
+    <script src="/static/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/js/jquery.slimscroll.js"></script>
+    <script src="/static/js/waves.js"></script>
+    <script src="/static/js/sidebarmenu.js"></script>
+    <script src="/static/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="/static/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script src="/static/js/custom.min.js"></script>
+    <script src="/static/plugins/moment/moment.js"></script>
+    <script src="/static/plugins/footable/js/footable.min.js"></script>
+    <!--FooTable init-->
+    <script src="/static/js/footable-init.js"></script>
+    <script src="/static/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+</body>
+</html>

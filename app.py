@@ -69,6 +69,41 @@ def index():
 def dashboard():
     return render_template('dashboard.html')
 
+@app.route('/app-calendar')
+def calendar():
+    return render_template('app-calendar.html')
+
+@app.route('/app-contact')
+def contact():
+    return render_template('app-contact.html')
+
+@app.route('/app-contactalunos')
+def contactalunos():
+    return render_template('app-contactalunos.html')
+
+@app.route('/profile')
+def profile():
+    return render_template('profile.html')
+
+@app.route('/app-contact-detail')
+def contactdetail():
+    return render_template('app-contact-detail.html')
+
+@app.route('/pages-login-2', methods=['GET', 'POST'])
+def pageslogin2():
+    erro = None
+    if request.method == 'POST':
+        v1 = request.form['utilizador']
+        v2 = request.form['passe']
+        if not existe(v1):
+            erro = 'O Utilizador não existe.'
+        elif not log(v1, v2):
+            erro = 'A palavra passe está errada.'
+        else:
+            return redirect_dest(fallback=url_for('dashboard'))
+            erro = 'Bem-Vindo.'
+    return render_template('pages-login-2.html', erro=erro)
+
 @app.route('/equipa')
 def equipa():
     return render_template('equipa.html')
