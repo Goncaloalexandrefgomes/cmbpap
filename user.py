@@ -8,7 +8,7 @@ class User:
 
     def reset(self):
         self.id = None
-        self.cliente = ''
+        self.login = ''
         self.email = ''
         self.password = ''
         self.nif = ''
