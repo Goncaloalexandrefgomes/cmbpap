@@ -75,6 +75,18 @@ def saxofone():
 def violino():
     return render_template('violino.html')
 
+@app.route('/addaluno')
+def addaluno():
+    return render_template('addaluno.html')
+
+@app.route('/addfuncionario')
+def addfuncionario():
+    return render_template('addfuncionario.html')
+
+@app.route('/app-contact-detailfuncionarios')
+def detailfuncionarios():
+    return render_template('app-contact-detailfuncionarios.html')
+
 @app.route('/pages-login-2', methods=['GET', 'POST'])
 def pageslogin2():
     erro = None

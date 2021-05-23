@@ -76,7 +76,7 @@
                     <li><a class="waves-effect waves-dark" href="app-calendar" aria-expanded="false"><i
                             class="mdi mdi-calendar-blank"></i><span class="hide-menu">Calendario</span></a>
                     </li>
-                    <li><a class="waves-effect waves-dark" href="app-contact.html" aria-expanded="false"><i
+                    <li><a class="waves-effect waves-dark" href="app-contact" aria-expanded="false"><i
                             class="mdi mdi-contacts"></i><span class="hide-menu">Contacto Funcionario</span></a>
                     </li>
                     <li><a class="waves-effect waves-dark" href="app-contactalunos" aria-expanded="false"><i
@@ -174,8 +174,7 @@
                                                 <th>Telemovel</th>
                                                 <th>Instrumento</th>
                                                 <th>Idade</th>
-                                                <th>Data de Inscricao</th>
-                                                <th>Salario</th>
+                                                <th>Mensalidade</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -193,7 +192,6 @@
                                                 <td>+123 456 789</td>
                                                 <td><span class="label label-danger">Designer</span></td>
                                                 <td>23</td>
-                                                <td>12-10-2014</td>
                                                 <td>$1200</td>
                                             </tr>
                                             <tr>
@@ -210,7 +208,6 @@
                                                 <td>+234 456 789</td>
                                                 <td><span class="label label-info">Developer</span></td>
                                                 <td>26</td>
-                                                <td>10-09-2014</td>
                                                 <td>$1800</td>
                                             </tr>
                                             <tr>
@@ -227,7 +224,6 @@
                                                 <td>+345 456 789</td>
                                                 <td><span class="label label-success">Accountant</span></td>
                                                 <td>28</td>
-                                                <td>1-10-2013</td>
                                                 <td>$2200</td>
                                             </tr>
                                             <tr>
@@ -244,7 +240,6 @@
                                                 <td>+456 456 789</td>
                                                 <td><span class="label label-inverse">HR</span></td>
                                                 <td>25</td>
-                                                <td>2-10-2017</td>
                                                 <td>$200</td>
                                             </tr>
                                             <tr>
@@ -261,7 +256,6 @@
                                                 <td>+567 456 789</td>
                                                 <td><span class="label label-danger">Manager</span></td>
                                                 <td>23</td>
-                                                <td>10-9-2015</td>
                                                 <td>$1200</td>
                                             </tr>
                                             <tr>
@@ -278,7 +272,6 @@
                                                 <td>+678 456 789</td>
                                                 <td><span class="label label-warning">Chairman</span></td>
                                                 <td>29</td>
-                                                <td>10-5-2013</td>
                                                 <td>$1500</td>
                                             </tr>
                                             <tr>
@@ -295,7 +288,6 @@
                                                 <td>+123 456 789</td>
                                                 <td><span class="label label-danger">Designer</span></td>
                                                 <td>35</td>
-                                                <td>05-10-2012</td>
                                                 <td>$3200</td>
                                             </tr>
                                             <tr>
@@ -312,7 +304,6 @@
                                                 <td>+234 456 789</td>
                                                 <td><span class="label label-info">Developer</span></td>
                                                 <td>27</td>
-                                                <td>11-10-2014</td>
                                                 <td>$1800</td>
                                             </tr>
                                             <tr>
@@ -329,7 +320,6 @@
                                                 <td>+345 456 789</td>
                                                 <td><span class="label label-success">Accountant</span></td>
                                                 <td>18</td>
-                                                <td>12-5-2017</td>
                                                 <td>$100</td>
                                             </tr>
                                             <tr>
@@ -346,7 +336,6 @@
                                                 <td>+456 456 789</td>
                                                 <td><span class="label label-inverse">HR</span></td>
                                                 <td>36</td>
-                                                <td>18-5-2009</td>
                                                 <td>$4200</td>
                                             </tr>
                                             <tr>
@@ -363,7 +352,6 @@
                                                 <td>+567 456 789</td>
                                                 <td><span class="label label-danger">Manager</span></td>
                                                 <td>43</td>
-                                                <td>12-10-2010</td>
                                                 <td>$5200</td>
                                             </tr>
                                             <tr>
@@ -380,7 +368,6 @@
                                                 <td>+123 456 789</td>
                                                 <td><span class="label label-danger">Designer</span></td>
                                                 <td>23</td>
-                                                <td>12-10-2014</td>
                                                 <td>$1200</td>
                                             </tr>
                                             <tr>
@@ -397,7 +384,6 @@
                                                 <td>+234 456 789</td>
                                                 <td><span class="label label-info">Developer</span></td>
                                                 <td>26</td>
-                                                <td>10-09-2014</td>
                                                 <td>$1800</td>
                                             </tr>
                                             <tr>
@@ -414,73 +400,14 @@
                                                 <td>+345 456 789</td>
                                                 <td><span class="label label-success">Accountant</span></td>
                                                 <td>28</td>
-                                                <td>1-10-2013</td>
                                                 <td>$2200</td>
                                             </tr>
                                             </tbody>
                                             <tfoot>
                                             <tr>
                                                 <td colspan="2">
-                                                    <button type="button" class="btn btn-info btn-rounded"
-                                                            data-toggle="modal" data-target="#add-contact">Adicionar
-                                                        Novo Contato
-                                                    </button>
+                                                    <a href="addaluno"><button type="button" class="btn btn-info btn-rounded">Adicionar Novo Aluno</button></a>
                                                 </td>
-                                                <div id="add-contact" class="modal fade in" tabindex="-1" role="dialog"
-                                                     aria-labelledby="myModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h4 class="modal-title" id="myModalLabel">Adicionar Novo
-                                                                    Contato</h4>
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                        aria-hidden="true">×
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <from class="form-horizontal form-material">
-                                                                    <div class="form-group">
-                                                                        <div class="col-md-12 m-b-20">
-                                                                            <input type="text" class="form-control"
-                                                                                   placeholder="Nome"></div>
-                                                                        <div class="col-md-12 m-b-20">
-                                                                            <input type="text" class="form-control"
-                                                                                   placeholder="Email"></div>
-                                                                        <div class="col-md-12 m-b-20">
-                                                                            <input type="text" class="form-control"
-                                                                                   placeholder="Telemovel"></div>
-                                                                        <div class="col-md-12 m-b-20">
-                                                                            <input type="text" class="form-control"
-                                                                                   placeholder="Designacao"></div>
-                                                                        <div class="col-md-12 m-b-20">
-                                                                            <input type="text" class="form-control"
-                                                                                   placeholder="Idade"></div>
-                                                                        <div class="col-md-12 m-b-20">
-                                                                            <input type="text" class="form-control"
-                                                                                   placeholder="Data de Contrato"></div>
-                                                                        <div class="col-md-12 m-b-20">
-                                                                            <input type="text" class="form-control"
-                                                                                   placeholder="Salario"></div>
-                                                                        <div class="col-md-12 m-b-20">
-                                                                            <div class="fileupload btn btn-danger btn-rounded waves-effect waves-light">
-                                                                                <span><i class="ion-upload m-r-5"></i>Adicionar Imagem</span>
-                                                                                <input type="file" class="upload"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </from>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-info waves-effect"
-                                                                        data-dismiss="modal">Guardar
-                                                                </button>
-                                                                <button type="button"
-                                                                        class="btn btn-default waves-effect"
-                                                                        data-dismiss="modal">Cancelar
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 <td colspan="7">
                                                     <div class="text-right">
                                                         <ul class="pagination"></ul>
