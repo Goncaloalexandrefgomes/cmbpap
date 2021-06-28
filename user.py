@@ -1,7 +1,6 @@
 import psycopg2
 
 class User:
-    db = 'db/Utilizadores.xlsx'
 
     def __init__(self):
         self.reset()
