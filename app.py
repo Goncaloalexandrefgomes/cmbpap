@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, url_for, redirect
 from user import User
+from funcionarios import Funcionarios
 
 app = Flask(__name__)
 usr = User()
+fun = Funcionarios()
 
 @app.route('/')
 def index():
@@ -79,9 +81,22 @@ def violino():
 def addaluno():
     return render_template('addaluno.html')
 
-@app.route('/addfuncionario')
+@app.route('/addfuncionario' , methods=['GET', 'POST'])
 def addfuncionario():
-    return render_template('addfuncionario.html')
+    #fun.inserirF('Rosa Lopes', 'email@gmail.com', 123456789, 'professor - bateria', 43, 1250, 'Rua de Baixo 212')
+    if request.method == 'POST':
+        v1 = request.form['nome']
+        v2 = request.form['email']
+        v3 = request.form['telemovel']
+        v4 = request.form['cargo']
+        v5 = request.form['idade']
+        v6 = request.form['salario']
+        v7 = request.form['morada']
+        fun.inserirF(v1, v2, v3, v4, v5, v6, v7)
+        print (v1, v2, v3, v4, v5, v6, v7)
+        import win32api
+        win32api.messagebox(0, 2)
+    return render_template('addfuncionario.html', fun=fun)
 
 @app.route('/app-contact-detailfuncionarios')
 def detailfuncionarios():
