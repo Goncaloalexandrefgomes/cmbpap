@@ -1,10 +1,14 @@
 from flask import Flask, render_template, request, url_for, redirect
 from user import User
 from funcionarios import Funcionarios
+from alunos import Alunos
+from diretor import Diretor
 
 app = Flask(__name__)
 usr = User()
 fun = Funcionarios()
+alu = Alunos()
+dire = Diretor()
 
 @app.route('/')
 def index():
@@ -20,15 +24,18 @@ def calendar():
 
 @app.route('/app-contact')
 def contact():
-    return render_template('app-contact.html')
+    dados = fun.lista
+    return render_template('app-contact.html', tabela=dados, max=len(dados))
 
 @app.route('/app-contactalunos')
 def contactalunos():
-    return render_template('app-contactalunos.html')
+    dados = alu.lista
+    return render_template('app-contactalunos.html', tabela=dados, max=len(dados))
 
-@app.route('/profile')
+@app.route('/profile', methods=['GET', 'POST'])
 def profile():
-    return render_template('profile.html')
+    #dire.inserirD('Goncalo Gomes', 'goncalo.gomes1412003@gmail.com', 963965166, '71 Pilgrim Avenue Chevy Chase, MD 20815')
+    return render_template('profile.html', dire=dire)
 
 @app.route('/app-contact-detail')
 def contactdetail():
@@ -77,11 +84,21 @@ def saxofone():
 def violino():
     return render_template('violino.html')
 
-@app.route('/addaluno')
+@app.route('/addaluno', methods=['GET', 'POST'])
 def addaluno():
-    return render_template('addaluno.html')
+    # alu.inserirA('Rosa Lopes', 'email@gmail.com', 123456789, 'bateria', 16, 60, 'Rua de Baixo 212')
+    if request.method == 'POST':
+        v1 = request.form['nome']
+        v2 = request.form['email']
+        v3 = request.form['telemovel']
+        v4 = request.form['instrumento']
+        v5 = request.form['idade']
+        v6 = request.form['mensalidade']
+        v7 = request.form['morada']
+        alu.inserirA(v1, v2, v3, v4, v5, v6, v7)
+    return render_template('addaluno.html', alu=alu,)
 
-@app.route('/addfuncionario' , methods=['GET', 'POST'])
+@app.route('/addfuncionario', methods=['GET', 'POST'])
 def addfuncionario():
     #fun.inserirF('Rosa Lopes', 'email@gmail.com', 123456789, 'professor - bateria', 43, 1250, 'Rua de Baixo 212')
     if request.method == 'POST':
@@ -93,10 +110,7 @@ def addfuncionario():
         v6 = request.form['salario']
         v7 = request.form['morada']
         fun.inserirF(v1, v2, v3, v4, v5, v6, v7)
-        print (v1, v2, v3, v4, v5, v6, v7)
-        import win32api
-        win32api.messagebox(0, 2)
-    return render_template('addfuncionario.html', fun=fun)
+    return render_template('addfuncionario.html', fun=fun,)
 
 @app.route('/app-contact-detailfuncionarios')
 def detailfuncionarios():

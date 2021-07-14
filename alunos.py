@@ -1,6 +1,6 @@
 import psycopg2
 
-class Funcionarios:
+class Alunos:
 
     def __init__(self):
         self.reset()
@@ -10,9 +10,9 @@ class Funcionarios:
         self.nome = None
         self.email = None
         self.telemovel = None
-        self.cargo = None
+        self.instrumento = None
         self.idade = None
-        self.salario = None
+        self.mensalidade = None
         self.morada = None
 
     def herokudb(self):
@@ -20,11 +20,11 @@ class Funcionarios:
         mydb = Database()
         return psycopg2.connect(host=mydb.Host, database=mydb.Database, user=mydb.User, password=mydb.Password, sslmode='require')
 
-    def inserirF(self, nome, email, telemovel, cargo, idade, salario, morada):
+    def inserirA(self, nome, email, telemovel, instrumento, idade, mensalidade, morada):
         ficheiro = self.herokudb()
         db = ficheiro.cursor()
-        db.execute("CREATE TABLE IF NOT EXISTS funcionarios (id serial primary key ,nome text,email text, telemovel text, cargo text, idade text, salario numeric , morada text)")
-        db.execute("INSERT INTO funcionarios VALUES (DEFAULT , %s, %s, %s, %s, %s, %s, %s)", (nome, email, telemovel, cargo, idade, salario, morada))
+        db.execute("CREATE TABLE IF NOT EXISTS alunos (id serial primary key ,nome text,email text, telemovel text, instrumento text, idade text, mensalidade numeric , morada text)")
+        db.execute("INSERT INTO alunos VALUES (DEFAULT , %s, %s, %s, %s, %s, %s, %s)", (nome, email, telemovel, instrumento, idade, mensalidade, morada))
         ficheiro.commit()
         ficheiro.close()
 
@@ -33,8 +33,8 @@ class Funcionarios:
         try:
             ficheiro = self.herokudb()
             db = ficheiro.cursor()
-            db.execute("select * from funcionarios ORDER BY nome")
-            db.execute("select * from funcionarios")
+            db.execute("select * from alunos ORDER BY nome")
+            db.execute("select * from alunos")
             valor = db.fetchall()
             ficheiro.close()
         except:

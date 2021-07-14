@@ -1,6 +1,6 @@
 import psycopg2
 
-class Funcionarios:
+class Diretor:
 
     def __init__(self):
         self.reset()
@@ -10,9 +10,6 @@ class Funcionarios:
         self.nome = None
         self.email = None
         self.telemovel = None
-        self.cargo = None
-        self.idade = None
-        self.salario = None
         self.morada = None
 
     def herokudb(self):
@@ -20,11 +17,11 @@ class Funcionarios:
         mydb = Database()
         return psycopg2.connect(host=mydb.Host, database=mydb.Database, user=mydb.User, password=mydb.Password, sslmode='require')
 
-    def inserirF(self, nome, email, telemovel, cargo, idade, salario, morada):
+    def inserirD(self, nome, email, telemovel, morada):
         ficheiro = self.herokudb()
         db = ficheiro.cursor()
-        db.execute("CREATE TABLE IF NOT EXISTS funcionarios (id serial primary key ,nome text,email text, telemovel text, cargo text, idade text, salario numeric , morada text)")
-        db.execute("INSERT INTO funcionarios VALUES (DEFAULT , %s, %s, %s, %s, %s, %s, %s)", (nome, email, telemovel, cargo, idade, salario, morada))
+        db.execute("CREATE TABLE IF NOT EXISTS diretor (id serial primary key ,nome text,email text, telemovel text, morada text)")
+        db.execute("INSERT INTO diretor VALUES (DEFAULT , %s, %s, %s, %s)", (nome, email, telemovel, morada))
         ficheiro.commit()
         ficheiro.close()
 
@@ -33,8 +30,8 @@ class Funcionarios:
         try:
             ficheiro = self.herokudb()
             db = ficheiro.cursor()
-            db.execute("select * from funcionarios ORDER BY nome")
-            db.execute("select * from funcionarios")
+            db.execute("select * from diretor ORDER BY nome")
+            db.execute("select * from diretor")
             valor = db.fetchall()
             ficheiro.close()
         except:
