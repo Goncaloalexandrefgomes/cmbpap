@@ -26,7 +26,7 @@
     <header class="topbar">
         <nav class="navbar top-navbar navbar-expand-md navbar-light">
             <div class="navbar-header">
-                <a class="navbar-brand" href="dashboard">
+                <a class="navbar-brand" href="/dashboard">
                     <b>
                         <img src="/static/images/logo-icon.png" alt="homepage" class="dark-logo"/>
                         <img src="/static/images/logo-light-icon.png" alt="homepage" class="light-logo"/>
@@ -41,14 +41,6 @@
                     <li class="nav-item"><a
                             class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark"
                             href="javascript:void(0)"><i class="ti-menu"></i></a></li>
-
-                    <li class="nav-item hidden-sm-down search-box">
-                        <a class="nav-link hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i
-                                class="ti-search"></i></a>
-                        <form class="app-search">
-                            <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i
-                                class="ti-close"></i></a></form>
-                    </li>
                 </ul>
             </div>
         </nav>
@@ -70,16 +62,16 @@
 
             <nav class="sidebar-nav">
                 <ul id="sidebarnav">
-                    <li><a class="waves-effect waves-dark" href="dashboard" aria-expanded="false"><i
+                    <li><a class="waves-effect waves-dark" href="/dashboard" aria-expanded="false"><i
                             class="mdi mdi-gauge"></i>Dashboard</a>
                     </li>
-                    <li><a class="waves-effect waves-dark" href="app-calendar" aria-expanded="false"><i
+                    <li><a class="waves-effect waves-dark" href="/app-calendar" aria-expanded="false"><i
                             class="mdi mdi-calendar-blank"></i><span class="hide-menu">Calendario</span></a>
                     </li>
-                    <li><a class="waves-effect waves-dark" href="app-contact" aria-expanded="false"><i
+                    <li><a class="waves-effect waves-dark" href="/app-contact" aria-expanded="false"><i
                             class="mdi mdi-contacts"></i><span class="hide-menu">Contacto Funcionarios</span></a>
                     </li>
-                    <li><a class="waves-effect waves-dark" href="app-contactalunos" aria-expanded="false"><i
+                    <li><a class="waves-effect waves-dark" href="/app-contactalunos" aria-expanded="false"><i
                             class="mdi mdi-contacts"></i><span class="hide-menu">Contacto Alunos</span></a>
                     </li>
                     <li class="nav-devider"></li>
@@ -104,18 +96,9 @@
                 <div class="col-lg-4 col-xlg-3 col-md-5">
                     <div class="card">
                         <div class="card-body">
-                                <center class="m-t-30"><a href="dashboard"><img src="/static/images/logo-icon.png" class="img-circle" /></a>
+                                <center class="m-t-30"><a href="/dashboard"><img src="/static/images/logo-icon.png" class="img-circle" /></a>
                                 </center>
                             </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body"><small class="text-muted">Email</small>
-                            <h6><a href="https://www.wrappixel.com/cdn-cgi/l/email-protection" class="__cf_email__"
-                                   data-cfemail="056d646b6b64626a736077456268646c692b666a68"></a>
-                            </h6> <small class="text-muted p-t-30 db">Telemovel</small>
-                            <h6></h6> <small class="text-muted p-t-30 db">Morada</small>
-                            <h6></h6>
-                        </div>
                     </div>
                 </div>
 
@@ -133,23 +116,23 @@
                                         <label class="col-md-12">Nome Completo</label>
                                         <div class="col-md-12">
                                             <input type="text"
-                                                   class="form-control form-control-line" required>
+                                                   class="form-control form-control-line" placeholder="{{ tabela[li][1] }}" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="example-email" class="col-md-12">Email</label>
                                         <div class="col-md-12">
                                             <input type="email"
-                                                   class="form-control form-control-line" name="example-email" required
+                                                   class="form-control form-control-line" placeholder="{{ tabela[li][2] }}" required
                                                    id="example-email">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-md-12">N Telemovel</label>
+                                        <label class="col-md-12">Telemovel</label>
                                         <div class="col-md-12">
                                             <input type="number"
-                                                   class="form-control form-control-line" required>
+                                                   class="form-control form-control-line" placeholder="{{ tabela[li][3] }}" required>
                                         </div>
                                     </div>
 
@@ -157,7 +140,7 @@
                                         <label class="col-md-12">Instrumento</label>
                                         <div class="col-md-12">
                                             <input type="text"
-                                                   class="form-control form-control-line" required>
+                                                   class="form-control form-control-line" placeholder="{{ tabela[li][4] }}" required>
                                         </div>
                                     </div>
 
@@ -165,7 +148,7 @@
                                         <label class="col-md-12">Idade</label>
                                         <div class="col-md-12">
                                             <input type="number"
-                                                   class="form-control form-control-line" required>
+                                                   class="form-control form-control-line" placeholder="{{ tabela[li][5] }}" required>
                                         </div>
                                     </div>
 
@@ -173,7 +156,7 @@
                                         <label class="col-md-12">Mensalidade</label>
                                         <div class="col-md-12">
                                             <input type="text"
-                                                   class="form-control form-control-line" required>
+                                                   class="form-control form-control-line" placeholder="{{ tabela[li][6] }}" required>
                                         </div>
                                     </div>
 
@@ -181,19 +164,7 @@
                                         <label class="col-md-12">Morada</label>
                                         <div class="col-md-12">
                                             <input type="text"
-                                                   class="form-control form-control-line" required>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="col-sm-12">Selecionar Pais</label>
-                                        <div class="col-sm-12">
-                                            <select class="form-control form-control-line">
-                                                <option>Portugal</option>
-                                                <option>Espanha</option>
-                                                <option>Franca</option>
-                                                <option>Outro</option>
-                                            </select>
+                                                   class="form-control form-control-line" placeholder="{{ tabela[li][7] }}" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -205,73 +176,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="right-sidebar">
-            <div class="slimscrollright">
-                <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span></div>
-                <div class="r-panel-body">
-                    <ul id="themecolors" class="m-t-20">
-                        <li><b>With Light sidebar</b></li>
-                        <li><a href="javascript:void(0)" data-theme="default" class="default-theme">1</a></li>
-                        <li><a href="javascript:void(0)" data-theme="green" class="green-theme">2</a></li>
-                        <li><a href="javascript:void(0)" data-theme="red" class="red-theme">3</a></li>
-                        <li><a href="javascript:void(0)" data-theme="blue" class="blue-theme working">4</a></li>
-                        <li><a href="javascript:void(0)" data-theme="purple" class="purple-theme">5</a></li>
-                        <li><a href="javascript:void(0)" data-theme="megna" class="megna-theme">6</a></li>
-                        <li class="d-block m-t-30"><b>With Dark sidebar</b></li>
-                        <li><a href="javascript:void(0)" data-theme="default-dark" class="default-dark-theme">7</a></li>
-                        <li><a href="javascript:void(0)" data-theme="green-dark" class="green-dark-theme">8</a></li>
-                        <li><a href="javascript:void(0)" data-theme="red-dark" class="red-dark-theme">9</a></li>
-                        <li><a href="javascript:void(0)" data-theme="blue-dark" class="blue-dark-theme">10</a></li>
-                        <li><a href="javascript:void(0)" data-theme="purple-dark" class="purple-dark-theme">11</a></li>
-                        <li><a href="javascript:void(0)" data-theme="megna-dark" class="megna-dark-theme ">12</a></li>
-                    </ul>
-                    <ul class="m-t-20 chatonline">
-                        <li><b>Chat option</b></li>
-                        <li>
-                            <a href="javascript:void(0)"><img src="/static/images/users/1.jpg" alt="user-img"
-                                                              class="img-circle"> <span>Varun Dhavan <small
-                                    class="text-success">online</small></span></a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)"><img src="/static/images/users/2.jpg" alt="user-img"
-                                                              class="img-circle"> <span>Genelia Deshmukh <small
-                                    class="text-warning">Away</small></span></a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)"><img src="/static/images/users/3.jpg" alt="user-img"
-                                                              class="img-circle"> <span>Ritesh Deshmukh <small
-                                    class="text-danger">Busy</small></span></a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)"><img src="/static/images/users/4.jpg" alt="user-img"
-                                                              class="img-circle"> <span>Arijit Sinh <small
-                                    class="text-muted">Offline</small></span></a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)"><img src="/static/images/users/5.jpg" alt="user-img"
-                                                              class="img-circle"> <span>Govinda Star <small
-                                    class="text-success">online</small></span></a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)"><img src="/static/images/users/6.jpg" alt="user-img"
-                                                              class="img-circle"> <span>John Abraham<small
-                                    class="text-success">online</small></span></a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)"><img src="/static/images/users/7.jpg" alt="user-img"
-                                                              class="img-circle"> <span>Hritik Roshan<small
-                                    class="text-success">online</small></span></a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)"><img src="/static/images/users/8.jpg" alt="user-img"
-                                                              class="img-circle"> <span>Pwandeep rajan <small
-                                    class="text-success">online</small></span></a>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>

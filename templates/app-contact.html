@@ -69,7 +69,7 @@
                     <li><a class="waves-effect waves-dark" href="app-calendar" aria-expanded="false"><i
                             class="mdi mdi-calendar-blank"></i><span class="hide-menu">Calendario</span></a>
                     </li>
-                    <li><a class="waves-effect waves-dark" href="app-contact.html" aria-expanded="false"><i
+                    <li><a class="waves-effect waves-dark" href="app-contact" aria-expanded="false"><i
                             class="mdi mdi-contacts"></i><span class="hide-menu">Contacto Funcionario</span></a>
                     </li>
                     <li><a class="waves-effect waves-dark" href="app-contactalunos" aria-expanded="false"><i
@@ -101,7 +101,7 @@
                             <div class="left-aside">
                                 <ul class="list-style-none">
                                     <li class="box-label"><a href="javascript:void(0)">Todos os Contactos
-                                        <span>123</span></a></li>
+                                        <span>{{ tabela|count }}</span></a></li>
                                     <li class="divider"></li>
                                 </ul>
                             </div>
@@ -134,6 +134,11 @@
                                                     {{ tabela[li][co] }}
                                                 </td>
                                                 {% endfor %}
+                                                <td>
+                                                    <form action="/app-contact-detailfuncionarios/{{ li }}">
+                                                        <input type='submit' class="btn btn-info btn-rounded" value='Editar dados'>
+                                                    </form>
+                                                </td>
                                             </tr>
                                             {% endfor %}
                                             </tbody>
@@ -141,9 +146,7 @@
                                             <tr>
                                                 <td colspan="2">
                                                     <a href="addfuncionario">
-                                                        <button type="button" class="btn btn-info btn-rounded"
-                                                                data-toggle="modal">Adicionar
-                                                            Novo Contato
+                                                        <button type="button" class="btn btn-info btn-rounded">Adicionar Novo Contato
                                                         </button>
                                                     </a>
                                                 </td>

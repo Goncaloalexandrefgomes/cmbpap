@@ -107,7 +107,7 @@
                                 <div class="round round-lg align-self-center round-info"><i
                                         class="mdi mdi-account-circle"></i></div>
                                 <div class="m-l-10 align-self-center">
-                                    <h3 class="m-b-0 font-light">29</h3>
+                                    <h3 class="m-b-0 font-light">{{ tabela|count }}</h3>
                                     <h5 class="text-muted m-b-0">Alunos</h5></div>
                             </div>
                         </div>
@@ -121,7 +121,7 @@
                                 <div class="round round-lg align-self-center round-warning"><i
                                         class="mdi mdi-account-multiple-plus"></i></div>
                                 <div class="m-l-10 align-self-center">
-                                    <h3 class="m-b-0 font-lgiht">76</h3>
+                                    <h3 class="m-b-0 font-lgiht">{{ tabela2|count }}</h3>
                                     <h5 class="text-muted m-b-0">Professores</h5></div>
                             </div>
                         </div>
@@ -135,7 +135,7 @@
                                 <div class="round round-lg align-self-center round-primary"><i
                                         class="mdi mdi-file-check"></i></div>
                                 <div class="m-l-10 align-self-center">
-                                    <h3 class="m-b-0 font-lgiht">19</h3>
+                                    <h3 class="m-b-0 font-lgiht">1</h3>
                                     <h5 class="text-muted m-b-0">Eventos</h5></div>
                             </div>
                         </div>
@@ -149,59 +149,9 @@
                                 <div class="round round-lg align-self-center round-danger"><i
                                         class="mdi mdi-contacts"></i></div>
                                 <div class="m-l-10 align-self-center">
-                                    <h3 class="m-b-0 font-lgiht">17</h3>
+                                    <h3 class="m-b-0 font-lgiht">{{ tabela|count }} + {{ tabela2|count }}</h3>
                                     <h5 class="text-muted m-b-0">Contactos</h5></div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Total Visits</h4>
-                            <div id="visitfromworld" style="width:100%!important; height:415px"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Browser Stats</h4>
-                            <table class="table browser m-t-30 no-border">
-                                <tbody>
-                                <tr>
-                                    <td style="width:40px"><img src="/static/images/browser/chrome-logo.png"
-                                                                alt=logo/></td>
-                                    <td>Google Chrome</td>
-                                    <td class="text-right"><span class="label label-light-info">23%</span></td>
-                                </tr>
-                                <tr>
-                                    <td><img src="/static/images/browser/firefox-logo.png" alt=logo/></td>
-                                    <td>Mozila Firefox</td>
-                                    <td class="text-right"><span class="label label-light-success">15%</span></td>
-                                </tr>
-                                <tr>
-                                    <td><img src="/static/images/browser/safari-logo.png" alt=logo/></td>
-                                    <td>Apple Safari</td>
-                                    <td class="text-right"><span class="label label-light-primary">07%</span></td>
-                                </tr>
-                                <tr>
-                                    <td><img src="/static/images/browser/internet-logo.png" alt=logo/></td>
-                                    <td>Internet Explorer</td>
-                                    <td class="text-right"><span class="label label-light-warning">09%</span></td>
-                                </tr>
-                                <tr>
-                                    <td><img src="/static/images/browser/opera-logo.png" alt=logo/></td>
-                                    <td>Opera mini</td>
-                                    <td class="text-right"><span class="label label-light-danger">23%</span></td>
-                                </tr>
-                                <tr>
-                                    <td><img src="/static/images/browser/internet-logo.png" alt=logo/></td>
-                                    <td>Microsoft edge</td>
-                                    <td class="text-right"><span class="label label-light-megna">09%</span></td>
-                                </tr>
-                                </tbody>
-                            </table>
                         </div>
                     </div>
                 </div>

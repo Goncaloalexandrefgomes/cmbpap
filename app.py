@@ -16,7 +16,9 @@ def index():
 
 @app.route('/dashboard')
 def dashboard():
-    return render_template('dashboard.html')
+    dados = alu.lista
+    dados2 = fun.lista
+    return render_template('dashboard.html', tabela=dados, tabela2=dados2)
 
 @app.route('/app-calendar')
 def calendar():
@@ -34,12 +36,18 @@ def contactalunos():
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
-    #dire.inserirD('Goncalo Gomes', 'goncalo.gomes1412003@gmail.com', 963965166, '71 Pilgrim Avenue Chevy Chase, MD 20815')
+    #dire.inserirD('Goncalo Gomes', 'goncalo.gomes1412003@gmail.com', 963965166, 'Rua de Cima')
     return render_template('profile.html', dire=dire)
 
-@app.route('/app-contact-detail')
-def contactdetail():
-    return render_template('app-contact-detail.html')
+@app.route('/app-contact-detail/<int:li>')
+def contactdetail(li):
+    dados = alu.lista
+    return render_template('app-contact-detail.html', li=li, tabela=dados)
+
+@app.route('/app-contact-detailfuncionarios/<int:li>')
+def detailfuncionarios(li):
+    dados = fun.lista
+    return render_template('app-contact-detailfuncionarios.html', li=li, tabela=dados)
 
 @app.route('/piano')
 def piano():
@@ -111,10 +119,6 @@ def addfuncionario():
         v7 = request.form['morada']
         fun.inserirF(v1, v2, v3, v4, v5, v6, v7)
     return render_template('addfuncionario.html', fun=fun,)
-
-@app.route('/app-contact-detailfuncionarios')
-def detailfuncionarios():
-    return render_template('app-contact-detailfuncionarios.html')
 
 @app.route('/pages-login-2', methods=['GET', 'POST'])
 def pageslogin2():
