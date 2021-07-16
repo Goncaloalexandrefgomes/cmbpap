@@ -1,22 +1,6 @@
-/*
-Template Name: Monster Admin
-Author: Themedesigner
-Email: niravjoshi87@gmail.com
-File: scss
-*/
-/*
-Template Name: Monster Admin
-Author: Themedesigner
-Email: niravjoshi87@gmail.com
-File: scss
-*/
+
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
-/*Theme Colors*/
-/*bootstrap Color*/
-/*Light colors*/
-/*Normal Color*/
-/*Extra Variable*/
-/*Preloader*/
+
 .preloader {
   width: 100%;
   height: 100%;
@@ -32,9 +16,6 @@ File: scss
   left: calc(50% - 3.5px);
 }
 
-/*******************
-/*Top bar
-*******************/
 .topbar {
   background: #1e88e5;
 }
@@ -60,9 +41,6 @@ File: scss
   color: rgba(255, 255, 255, 0.8) !important;
 }
 
-/*******************
-/*General Elements
-*******************/
 a.link:hover, a.link:focus {
   color: #1e88e5 !important;
 }
@@ -104,9 +82,6 @@ a.link:hover, a.link:focus {
   color: #1e88e5;
 }
 
-/*******************
-/*Buttons
-*******************/
 .btn-themecolor,
 .btn-themecolor.disabled {
   background: #1e88e5;
@@ -127,9 +102,6 @@ a.link:hover, a.link:focus {
   background: #028ee1;
 }
 
-/*******************
-/*sidebar navigation
-*******************/
 .sidebar-nav {
   background: #fff;
 }
