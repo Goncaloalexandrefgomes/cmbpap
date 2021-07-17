@@ -36,8 +36,9 @@ def contactalunos():
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
+    dados = dire.lista
     #dire.inserirD('Goncalo Gomes', 'goncalo.gomes1412003@gmail.com', 963965166, 'Rua de Cima')
-    return render_template('profile.html', dire=dire)
+    return render_template('profile.html', tabela=dados)
 
 @app.route('/app-contact-detail/<int:li>')
 def contactdetail(li):
