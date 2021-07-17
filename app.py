@@ -44,10 +44,27 @@ def contactdetail(li):
     dados = alu.lista
     return render_template('app-contact-detail.html', li=li, tabela=dados)
 
-@app.route('/app-contact-detailfuncionarios/<int:li>')
+@app.route('/app-contact-detailfuncionarios/<int:li>', methods=['GET', 'POST'])
 def detailfuncionarios(li):
     dados = fun.lista
-    return render_template('app-contact-detailfuncionarios.html', li=li, tabela=dados)
+    id = fun.id
+    if request.method == 'POST':
+        if id:
+            if "delete" in request.form:
+                fun.apaga(id)
+            elif "edit" in request.form:
+                v1 = request.form['nome']
+                v2 = request.form['email']
+                v3 = request.form['telemovel']
+                v4 = request.form['cargo']
+                v5 = request.form['idade']
+                v6 = request.form['salario']
+                v7 = request.form['morada']
+                fun.alterar(id, v6)
+                fun.select(id)
+        else:
+            v6 = request.form['id']
+    return render_template('app-contact-detailfuncionarios.html', li=li, tabela=dados, fun=fun, id=id)
 
 @app.route('/piano')
 def piano():

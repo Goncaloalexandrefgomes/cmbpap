@@ -28,6 +28,45 @@ class Funcionarios:
         ficheiro.commit()
         ficheiro.close()
 
+    def apaga(self, id):
+        ficheiro = self.herokudb()
+        db = ficheiro.cursor()
+        db.execute("DELETE FROM funcionarios WHERE id = %s", (id,))
+        ficheiro.commit()
+        ficheiro.close()
+
+    def alterar(self, id, v6):
+        ficheiro = self.herokudb()
+        db = ficheiro.cursor()
+        #db.execute("UPDATE funcionarios SET nome = %s WHERE id = %s", (id, v1))
+        #db.execute("UPDATE funcionarios SET email = %s WHERE id = %s", (id, v2))
+        #db.execute("UPDATE funcionarios SET telemovel = %s WHERE id = %s", (id, v3))
+        #db.execute("UPDATE funcionarios SET cargo = %s WHERE id = %s", (id, v4))
+        #db.execute("UPDATE funcionarios SET idade = %s WHERE id = %s", (id, v5))
+        db.execute("UPDATE funcionarios SET salario = %s WHERE id = %s", (v6, id))
+        #db.execute("UPDATE funcionarios SET morada = %s WHERE id = %s", (id, v7))
+        ficheiro.commit()
+        ficheiro.close()
+
+    def select(self, id):
+        try:
+            ficheiro = self.herokudb()
+            db = ficheiro.cursor()
+            db.execute("select * from funcionarios where id = %s", (id,))
+            valor = db.fetchone()
+            ficheiro.close()
+            self.id = valor[0]
+            self.nome = valor[1]
+            self.email = valor[2]
+            self.telemovel = valor[3]
+            self.cargo = valor[4]
+            self.idade = valor[5]
+            self.salario = valor[6]
+            self.morada = valor[7]
+        except:
+            self.reset()
+        return
+
     @property
     def lista(self):
         try:
