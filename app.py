@@ -37,35 +37,66 @@ def contactalunos():
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
     dados = dire.lista
+    #id = dados[li][0]
+    dire.select(id)
+    if request.method == 'POST':
+        if "delete" in request.form:
+            dire.apaga(id)
+            return redirect('/app-contactalunos')
+        elif "edit" in request.form:
+            v1 = request.form['nome']
+            v2 = request.form['email']
+            v3 = request.form['telemovel']
+            v4 = request.form['morada']
+            dire.alterar(id, v1, v2, v3, v4)
+            dire.select(id)
+            return redirect('/profile')
     #dire.inserirD('Goncalo Gomes', 'goncalo.gomes1412003@gmail.com', 963965166, 'Rua de Cima')
-    return render_template('profile.html', tabela=dados)
+    return render_template('profile.html', tabela=dire.lista)
 
-@app.route('/app-contact-detail/<int:li>')
+@app.route('/app-contact-detail/<int:li>', methods=['GET', 'POST'])
 def contactdetail(li):
     dados = alu.lista
-    return render_template('app-contact-detail.html', li=li, tabela=dados)
+    id = dados[li][0]
+    alu.select(id)
+    if request.method == 'POST':
+        if "delete" in request.form:
+            alu.apaga(id)
+            return redirect('/app-contactalunos')
+        elif "edit" in request.form:
+            v1 = request.form['nome']
+            v2 = request.form['email']
+            v3 = request.form['telemovel']
+            v4 = request.form['instrumento']
+            v5 = request.form['idade']
+            v6 = request.form['mensalidade']
+            v7 = request.form['morada']
+            alu.alterar(id, v1, v2, v3, v4, v5, v6, v7)
+            alu.select(id)
+            return redirect('/app-contactalunos')
+    return render_template('app-contact-detail.html', tabela=alu.lista, li=li)
 
 @app.route('/app-contact-detailfuncionarios/<int:li>', methods=['GET', 'POST'])
 def detailfuncionarios(li):
     dados = fun.lista
-    id = fun.id
+    id = dados[li][0]
+    fun.select(id)
     if request.method == 'POST':
-        if id:
-            if "delete" in request.form:
-                fun.apaga(id)
-            elif "edit" in request.form:
-                v1 = request.form['nome']
-                v2 = request.form['email']
-                v3 = request.form['telemovel']
-                v4 = request.form['cargo']
-                v5 = request.form['idade']
-                v6 = request.form['salario']
-                v7 = request.form['morada']
-                fun.alterar(id, v6)
-                fun.select(id)
-        else:
-            v6 = request.form['id']
-    return render_template('app-contact-detailfuncionarios.html', li=li, tabela=dados, fun=fun, id=id)
+        if "delete" in request.form:
+            fun.apaga(id)
+            return redirect('/app-contact')
+        elif "edit" in request.form:
+            v1 = request.form['nome']
+            v2 = request.form['email']
+            v3 = request.form['telemovel']
+            v4 = request.form['cargo']
+            v5 = request.form['idade']
+            v6 = request.form['salario']
+            v7 = request.form['morada']
+            fun.alterar(id, v1, v2, v3, v4, v5, v6, v7)
+            fun.select(id)
+            return redirect('/app-contact')
+    return render_template('app-contact-detailfuncionarios.html', tabela=fun.lista, li=li)
 
 @app.route('/piano')
 def piano():
@@ -122,6 +153,7 @@ def addaluno():
         v6 = request.form['mensalidade']
         v7 = request.form['morada']
         alu.inserirA(v1, v2, v3, v4, v5, v6, v7)
+        return redirect('/app-contactalunos')
     return render_template('addaluno.html', alu=alu,)
 
 @app.route('/addfuncionario', methods=['GET', 'POST'])
@@ -136,6 +168,7 @@ def addfuncionario():
         v6 = request.form['salario']
         v7 = request.form['morada']
         fun.inserirF(v1, v2, v3, v4, v5, v6, v7)
+        return redirect('/app-contact')
     return render_template('addfuncionario.html', fun=fun,)
 
 @app.route('/pages-login-2', methods=['GET', 'POST'])

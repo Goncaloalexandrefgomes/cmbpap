@@ -28,6 +28,45 @@ class Alunos:
         ficheiro.commit()
         ficheiro.close()
 
+    def apaga(self, id):
+        ficheiro = self.herokudb()
+        db = ficheiro.cursor()
+        db.execute("DELETE FROM alunos WHERE id = %s", (id,))
+        ficheiro.commit()
+        ficheiro.close()
+
+    def alterar(self, id, v1, v2, v3, v4, v5, v6, v7):
+        ficheiro = self.herokudb()
+        db = ficheiro.cursor()
+        db.execute("UPDATE alunos SET nome = %s WHERE id = %s", (v1, id))
+        db.execute("UPDATE alunos SET email = %s WHERE id = %s", (v2, id))
+        db.execute("UPDATE alunos SET telemovel = %s WHERE id = %s", (v3, id))
+        db.execute("UPDATE alunos SET instrumento = %s WHERE id = %s", (v4, id))
+        db.execute("UPDATE alunos SET idade = %s WHERE id = %s", (v5, id))
+        db.execute("UPDATE alunos SET mensalidade = %s WHERE id = %s", (v6, id))
+        db.execute("UPDATE alunos SET morada = %s WHERE id = %s", (v7, id))
+        ficheiro.commit()
+        ficheiro.close()
+
+    def select(self, id):
+        try:
+            ficheiro = self.herokudb()
+            db = ficheiro.cursor()
+            db.execute("select * from alunos where id = %s", (id,))
+            valor = db.fetchone()
+            ficheiro.close()
+            self.id = valor[0]
+            self.nome = valor[1]
+            self.email = valor[2]
+            self.telemovel = valor[3]
+            self.instrumento = valor[4]
+            self.idade = valor[5]
+            self.mensalidade = valor[6]
+            self.morada = valor[7]
+        except:
+            self.reset()
+        return
+
     @property
     def lista(self):
         try:

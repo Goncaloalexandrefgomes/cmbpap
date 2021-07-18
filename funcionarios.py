@@ -1,5 +1,6 @@
 import psycopg2
 
+
 class Funcionarios:
 
     def __init__(self):
@@ -18,13 +19,16 @@ class Funcionarios:
     def herokudb(self):
         from db import Database
         mydb = Database()
-        return psycopg2.connect(host=mydb.Host, database=mydb.Database, user=mydb.User, password=mydb.Password, sslmode='require')
+        return psycopg2.connect(host=mydb.Host, database=mydb.Database, user=mydb.User, password=mydb.Password,
+                                sslmode='require')
 
     def inserirF(self, nome, email, telemovel, cargo, idade, salario, morada):
         ficheiro = self.herokudb()
         db = ficheiro.cursor()
-        db.execute("CREATE TABLE IF NOT EXISTS funcionarios (id serial primary key ,nome text,email text, telemovel text, cargo text, idade text, salario numeric , morada text)")
-        db.execute("INSERT INTO funcionarios VALUES (DEFAULT , %s, %s, %s, %s, %s, %s, %s)", (nome, email, telemovel, cargo, idade, salario, morada))
+        db.execute(
+            "CREATE TABLE IF NOT EXISTS funcionarios (id serial primary key ,nome text,email text, telemovel text, cargo text, idade text, salario numeric , morada text)")
+        db.execute("INSERT INTO funcionarios VALUES (DEFAULT , %s, %s, %s, %s, %s, %s, %s)",
+                   (nome, email, telemovel, cargo, idade, salario, morada))
         ficheiro.commit()
         ficheiro.close()
 
@@ -35,16 +39,16 @@ class Funcionarios:
         ficheiro.commit()
         ficheiro.close()
 
-    def alterar(self, id, v6):
+    def alterar(self, id, v1, v2, v3, v4, v5, v6, v7):
         ficheiro = self.herokudb()
         db = ficheiro.cursor()
-        #db.execute("UPDATE funcionarios SET nome = %s WHERE id = %s", (id, v1))
-        #db.execute("UPDATE funcionarios SET email = %s WHERE id = %s", (id, v2))
-        #db.execute("UPDATE funcionarios SET telemovel = %s WHERE id = %s", (id, v3))
-        #db.execute("UPDATE funcionarios SET cargo = %s WHERE id = %s", (id, v4))
-        #db.execute("UPDATE funcionarios SET idade = %s WHERE id = %s", (id, v5))
+        db.execute("UPDATE funcionarios SET nome = %s WHERE id = %s", (v1, id))
+        db.execute("UPDATE funcionarios SET email = %s WHERE id = %s", (v2, id))
+        db.execute("UPDATE funcionarios SET telemovel = %s WHERE id = %s", (v3, id))
+        db.execute("UPDATE funcionarios SET cargo = %s WHERE id = %s", (v4, id))
+        db.execute("UPDATE funcionarios SET idade = %s WHERE id = %s", (v5, id))
         db.execute("UPDATE funcionarios SET salario = %s WHERE id = %s", (v6, id))
-        #db.execute("UPDATE funcionarios SET morada = %s WHERE id = %s", (id, v7))
+        db.execute("UPDATE funcionarios SET morada = %s WHERE id = %s", (v7, id))
         ficheiro.commit()
         ficheiro.close()
 
